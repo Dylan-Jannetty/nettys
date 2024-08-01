@@ -54,31 +54,23 @@ const servicesItems = [
   const dropDownEle = document?.querySelector(".dropdown");
   // LVP hover to activate dropdown
   if (window.matchMedia("(min-width: 600px)").matches) {
-    dropDownEle?.addEventListener("mouseenter", (e) => {
+    dropDownEle?.addEventListener("mouseenter", () => {
       if (dropDownEle?.classList.contains("closed")) {
         dropDownEle?.classList.remove("closed");
       }
     });
 
-    dropDownEle?.addEventListener("mouseleave", (e) => {
+    dropDownEle?.addEventListener("mouseleave", () => {
       if (!dropDownEle?.classList.contains("closed")) {
         dropDownEle?.classList.add("closed");
       }
     });
   } else {
+    dropDownEle?.addEventListener("touchstart", () => {
+      dropDownEle?.classList.toggle("closed");
+    });
   }
   // MVP-SVP click to activate dropdown
-  //   dropDownEle?.addEventListener("click", (e) => {
-  //     if (dropDownEle?.classList.contains("closed")) {
-  //       dropDownEle?.classList.remove("closed");
-  //     }
-  //   });
-
-  //   dropDownEle?.addEventListener("click", (e) => {
-  //     if (!dropDownEle?.classList.contains("closed")) {
-  //       dropDownEle?.classList.add("closed");
-  //     }
-  //   });
 </script>
 
 <style>
@@ -118,7 +110,7 @@ const servicesItems = [
 
     @media (min-width: 640px) {
       color: black;
-      font-size: 14px;
+      font-size: 16px;
       text-transform: capitalize;
     }
   }
@@ -126,6 +118,10 @@ const servicesItems = [
     @media (min-width: 640px) {
       background: rgba(197, 196, 196, 0.3);
     }
+  }
+
+  .services-dropdown {
+    cursor: pointer;
   }
 
   .dropdown.closed > .menu {
