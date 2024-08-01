@@ -1,0 +1,70 @@
+---
+import NavBar from "../components/NavBar.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <NavBar />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --white: white;
+    --black: black;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: rgb(245, 239, 239);
+    background-size: 224px;
+  }
+  body {
+    margin: 0;
+  }
+
+  .hide-on-mobile {
+    @media (max-width: 640px) {
+      display: none !important;
+    }
+  }
+
+  .cta-btn {
+    background-color: rgb(67, 208, 255);
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    border-width: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+</style>

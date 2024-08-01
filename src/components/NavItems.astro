@@ -1,0 +1,134 @@
+---
+const navItems = [
+  { item: "Pricing", href: "/pricing" },
+  { item: "Portfolio", href: "/portfolio" },
+  { item: "Services", href: "/services" },
+  { item: "FAQ", href: "/faq" },
+];
+
+const servicesItems = [
+  { service: "Custom Website Design", href: "/custom-website-design" },
+  { service: "Website Management", href: "/website-managment" },
+  { service: "Web Hosting", href: "/web-hosting" },
+  { service: "Search Engine Optimization", href: "/seo" },
+];
+---
+
+<div class="nav-item-container hide-on-mobile">
+  {
+    navItems.map(({ item, href }) => {
+      return (
+        <div
+          class:list={[
+            `nav-item ${item.toLowerCase()}`,
+            { dropdown: item === "Services" },
+            { closed: item === "Services" },
+          ]}
+        >
+          <a class="nav-anchor" href={href}>
+            {item}
+          </a>
+          {item === "Services" && (
+            <ul class="menu">
+              {servicesItems.map(({ service, href }) => {
+                return (
+                  <li>
+                    <a href={href}>{service}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      );
+    })
+  }
+</div>
+
+<script>
+  const dropDownEle = document?.querySelector(".dropdown");
+
+  dropDownEle?.addEventListener("mouseenter", (e) => {
+    if (dropDownEle?.classList.contains("closed")) {
+      dropDownEle?.classList.remove("closed");
+    }
+  });
+
+  dropDownEle?.addEventListener("mouseleave", (e) => {
+    if (!dropDownEle?.classList.contains("closed")) {
+      dropDownEle?.classList.add("closed");
+    }
+  });
+</script>
+
+<style>
+  .nav-item-container {
+    display: flex;
+    position: relative;
+  }
+  .nav-items {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-item {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  .nav-anchor {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+  .nav-item:hover {
+    background: rgba(197, 196, 196, 0.3);
+  }
+
+  .dropdown.closed > .menu {
+    transform: scaleY(0);
+  }
+
+  .menu {
+    position: absolute;
+    display: grid;
+    list-style: none;
+    transition: all 0.2s ease-in-out;
+    z-index: 2;
+    background: rgb(0, 0, 0);
+    transform: scaleY(1);
+    transform-origin: top;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    gap: 12.5% 0;
+    height: 160px;
+    padding: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    right: 0;
+    left: 0;
+    width: 225px;
+  }
+  .menu li {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    text-align: start;
+    text-decoration: none;
+
+    a {
+      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      color: white;
+      &:hover {
+        color: rgb(67, 208, 255);
+      }
+    }
+  }
+</style>
