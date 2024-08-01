@@ -26,26 +26,30 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
+    /* ToDo Once color pallette is decided rename to "Primary" "Secondary" "Accent" */
     --white: white;
     --black: black;
+    --grey: #484747;
+    --blue: rgb(67, 152, 255);
   }
   html {
     font-family: system-ui, sans-serif;
     background: rgb(245, 239, 239);
     background-size: 224px;
+    color: var(--grey);
   }
   body {
     margin: 0;
   }
 
   .hide-on-mobile {
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       display: none !important;
     }
   }
 
   .cta-btn {
-    background-color: rgb(67, 208, 255);
+    background-color: var(--blue);
     padding: 10px;
     font-weight: bold;
     border-radius: 20px;

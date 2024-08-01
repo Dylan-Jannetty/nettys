@@ -14,7 +14,7 @@ const servicesItems = [
 ];
 ---
 
-<div class="nav-item-container hide-on-mobile">
+<div class="nav-item-container">
   {
     navItems.map(({ item, href }) => {
       return (
@@ -25,9 +25,14 @@ const servicesItems = [
             { closed: item === "Services" },
           ]}
         >
-          <a class="nav-anchor" href={href}>
-            {item}
-          </a>
+          {item === "Services" ? (
+            <div class="nav-anchor services-dropdown">{item}</div>
+          ) : (
+            <a class="nav-anchor" href={href}>
+              {item}
+            </a>
+          )}
+
           {item === "Services" && (
             <ul class="menu">
               {servicesItems.map(({ service, href }) => {
@@ -47,14 +52,29 @@ const servicesItems = [
 
 <script>
   const dropDownEle = document?.querySelector(".dropdown");
+  // LVP hover to activate dropdown
+  if (window.matchMedia("(min-width: 600px)").matches) {
+    dropDownEle?.addEventListener("mouseenter", (e) => {
+      if (dropDownEle?.classList.contains("closed")) {
+        dropDownEle?.classList.remove("closed");
+      }
+    });
 
-  dropDownEle?.addEventListener("mouseenter", (e) => {
+    dropDownEle?.addEventListener("mouseleave", (e) => {
+      if (!dropDownEle?.classList.contains("closed")) {
+        dropDownEle?.classList.add("closed");
+      }
+    });
+  } else {
+  }
+  // MVP-SVP click to activate dropdown
+  dropDownEle?.addEventListener("click", (e) => {
     if (dropDownEle?.classList.contains("closed")) {
       dropDownEle?.classList.remove("closed");
     }
   });
 
-  dropDownEle?.addEventListener("mouseleave", (e) => {
+  dropDownEle?.addEventListener("click", (e) => {
     if (!dropDownEle?.classList.contains("closed")) {
       dropDownEle?.classList.add("closed");
     }
@@ -65,6 +85,11 @@ const servicesItems = [
   .nav-item-container {
     display: flex;
     position: relative;
+    flex-flow: column;
+
+    @media (min-width: 768px) {
+      flex-flow: row;
+    }
   }
   .nav-items {
     display: flex;
@@ -82,13 +107,23 @@ const servicesItems = [
   }
   .nav-anchor {
     text-decoration: none;
-    color: black;
+    color: var(--white);
     width: 100%;
     text-align: center;
     padding: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+
+    @media (min-width: 640px) {
+      color: black;
+      font-size: 14px;
+      text-transform: capitalize;
+    }
   }
   .nav-item:hover {
-    background: rgba(197, 196, 196, 0.3);
+    @media (min-width: 640px) {
+      background: rgba(197, 196, 196, 0.3);
+    }
   }
 
   .dropdown.closed > .menu {
@@ -132,3 +167,5 @@ const servicesItems = [
     }
   }
 </style>
+
+<!-- ---- -->

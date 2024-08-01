@@ -1,10 +1,23 @@
 ---
-
+import NavItems from "../components/NavItems.astro";
 ---
+
+<div id="menu">
+  <NavItems />
+</div>
 
 <div id="burger-menu">
   <span></span>
 </div>
+
+<script>
+  const burgerMenu = document.getElementById("burger-menu");
+  const overlay = document.getElementById("menu");
+  burgerMenu?.addEventListener("click", function () {
+    this.classList.toggle("close");
+    overlay?.classList.toggle("overlay");
+  });
+</script>
 
 <style>
   #burger-menu {
@@ -13,17 +26,17 @@
     width: 27px;
     overflow: visible;
     position: relative;
-    z-index: 2;
-    @media (min-width: 640px) {
+    z-index: 5;
+    @media (min-width: 770px) {
       display: none;
     }
   }
   #burger-menu span,
   #burger-menu span:before,
   #burger-menu span:after {
-    background: black;
+    background: var(--grey);
     display: block;
-    height: 4px;
+    height: 2px;
     opacity: 1;
     position: absolute;
     transition: 0.3s ease-in-out;
@@ -52,11 +65,13 @@
     transform: rotate(-45deg);
     top: 13px;
     width: 27px;
+    background-color: white;
   }
   #burger-menu.close span:before {
     top: 0px;
     transform: rotate(90deg);
     width: 27px;
+    background-color: white;
   }
   #burger-menu.close span:after {
     top: 0px;
@@ -64,5 +79,40 @@
     transform: rotate(90deg);
     opacity: 0;
     width: 0;
+  }
+
+  #menu {
+    z-index: 1;
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(50px);
+  }
+
+  #menu li {
+    list-style: none;
+  }
+  #menu a {
+    color: #fff;
+    display: block;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-decoration: none;
   }
 </style>
