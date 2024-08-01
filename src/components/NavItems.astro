@@ -68,17 +68,17 @@ const servicesItems = [
   } else {
   }
   // MVP-SVP click to activate dropdown
-  dropDownEle?.addEventListener("click", (e) => {
-    if (dropDownEle?.classList.contains("closed")) {
-      dropDownEle?.classList.remove("closed");
-    }
-  });
+  //   dropDownEle?.addEventListener("click", (e) => {
+  //     if (dropDownEle?.classList.contains("closed")) {
+  //       dropDownEle?.classList.remove("closed");
+  //     }
+  //   });
 
-  dropDownEle?.addEventListener("click", (e) => {
-    if (!dropDownEle?.classList.contains("closed")) {
-      dropDownEle?.classList.add("closed");
-    }
-  });
+  //   dropDownEle?.addEventListener("click", (e) => {
+  //     if (!dropDownEle?.classList.contains("closed")) {
+  //       dropDownEle?.classList.add("closed");
+  //     }
+  //   });
 </script>
 
 <style>
@@ -104,6 +104,8 @@ const servicesItems = [
     z-index: 1;
     transition: all 0.3s ease-in-out;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
   }
   .nav-anchor {
     text-decoration: none;
@@ -148,6 +150,7 @@ const servicesItems = [
     border-top-left-radius: 10px;
     right: 0;
     left: 0;
+    top: 45px;
     width: 225px;
   }
   .menu li {
@@ -167,5 +170,3 @@ const servicesItems = [
     }
   }
 </style>
-
-<!-- ---- -->
