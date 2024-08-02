@@ -2,38 +2,38 @@
 import NavItems from "../components/NavItems.astro";
 ---
 
-<div id="menu">
+<div class="nav-items-menu">
   <NavItems />
 </div>
 
-<div id="burger-menu">
+<div class="burger-menu">
   <span></span>
 </div>
 
 <script>
-  const burgerMenu = document.getElementById("burger-menu");
-  const overlay = document.getElementById("menu");
+  const burgerMenu = document.querySelector(".burger-menu");
+  const overlay = document.querySelector(".nav-items-menu");
   burgerMenu?.addEventListener("click", function () {
-    this.classList.toggle("close");
+    burgerMenu.classList.toggle("close");
     overlay?.classList.toggle("overlay");
   });
 </script>
 
 <style>
-  #burger-menu {
+  .burger-menu {
     cursor: pointer;
     height: 27px;
     width: 27px;
     overflow: visible;
     position: relative;
-    z-index: 5;
+    /* z-index: 5; */
     @media (min-width: 770px) {
       display: none;
     }
   }
-  #burger-menu span,
-  #burger-menu span:before,
-  #burger-menu span:after {
+  .burger-menu span,
+  .burger-menu span:before,
+  .burger-menu span:after {
     background: var(--grey);
     display: block;
     height: 2px;
@@ -41,39 +41,39 @@ import NavItems from "../components/NavItems.astro";
     position: absolute;
     transition: 0.3s ease-in-out;
   }
-  #burger-menu span:before,
-  #burger-menu span:after {
+  .burger-menu span:before,
+  .burger-menu span:after {
     content: "";
   }
-  #burger-menu span {
+  .burger-menu span {
     right: 0px;
     top: 13px;
     width: 27px;
   }
-  #burger-menu span:before {
+  .burger-menu span:before {
     left: 0px;
     top: -10px;
     width: 16px;
   }
-  #burger-menu span:after {
+  .burger-menu span:after {
     left: 0px;
     top: 10px;
     width: 20px;
   }
 
-  #burger-menu.close span {
+  .burger-menu.close span {
     transform: rotate(-45deg);
     top: 13px;
     width: 27px;
     background-color: white;
   }
-  #burger-menu.close span:before {
+  .burger-menu.close span:before {
     top: 0px;
     transform: rotate(90deg);
     width: 27px;
     background-color: white;
   }
-  #burger-menu.close span:after {
+  .burger-menu.close span:after {
     top: 0px;
     left: 0;
     transform: rotate(90deg);
@@ -81,12 +81,12 @@ import NavItems from "../components/NavItems.astro";
     width: 0;
   }
 
-  #menu {
-    z-index: 1;
+  .nav-items-menu {
+    /* z-index: 1; */
     min-width: 100vw;
     min-height: 100vh;
     position: fixed;
-    top: 0;
+    top: -750px;
     right: 0;
     height: 0;
     visibility: hidden;
@@ -98,17 +98,18 @@ import NavItems from "../components/NavItems.astro";
     align-items: center;
   }
 
-  #menu.overlay {
+  .nav-items-menu.overlay {
     visibility: visible;
     opacity: 1;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(50px);
+    top: 0;
   }
 
-  #menu li {
+  .nav-items-menu li {
     list-style: none;
   }
-  #menu a {
+  .nav-items-menu a {
     color: #fff;
     display: block;
     font-size: 32px;
