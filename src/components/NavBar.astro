@@ -5,24 +5,22 @@ import NavItems from "../components/NavItems.astro";
 import Hamburger from "./Hamburger.astro";
 ---
 
-<div>
-  <nav class="container">
-    <a class="logo" href="/">
-      <Image alt="nettys-logo" src={logo} loading="eager" />
-    </a>
+<nav class="container">
+  <a class="logo" href="/">
+    <Image alt="nettys-logo" src={logo} loading="eager" />
+  </a>
 
-    <!-- LVP - MVP Viewport -->
-    <div class="hide-on-mobile">
-      <NavItems />
-    </div>
-    <button class="cta-btn hide-on-mobile">Free Quote</button>
-    <!-- ----- -->
+  <!-- LVP - MVP Viewport -->
+  <div class="hide-on-mobile">
+    <NavItems />
+  </div>
+  <button class="cta-btn hide-on-mobile">Free Quote</button>
+  <!-- ----- -->
 
-    <!-- SVP Viewport -->
-    <Hamburger />
-    <!-- ---- -->
-  </nav>
-</div>
+  <!-- SVP Viewport -->
+  <Hamburger />
+  <!-- ---- -->
+</nav>
 
 <style>
   .container {

@@ -14,64 +14,76 @@ const servicesItems = [
 ];
 ---
 
-<div class="nav-item-container">
-  {
-    navItems.map(({ item, href }) => {
-      return (
-        <div
-          class:list={[
-            `nav-item ${item.toLowerCase()}`,
-            { dropdown: item === "Services" },
-            { closed: item === "Services" },
-          ]}
-        >
-          {item === "Services" ? (
-            <div class="nav-anchor services-dropdown">{item}</div>
-          ) : (
-            <a class="nav-anchor" href={href}>
-              {item}
-            </a>
-          )}
+<nav-items>
+  <div class="nav-item-container">
+    {
+      navItems.map(({ item, href }) => {
+        return (
+          <div
+            class:list={[
+              `nav-item ${item.toLowerCase()}`,
+              { dropdown: item === "Services" },
+              { closed: item === "Services" },
+            ]}
+          >
+            {item === "Services" ? (
+              <div class="nav-anchor services-dropdown">{item}</div>
+            ) : (
+              <a class={`nav-anchor ${item.toLowerCase()}`} href={href}>
+                {item}
+              </a>
+            )}
 
-          {item === "Services" && (
-            <ul class="menu">
-              {servicesItems.map(({ service, href }) => {
-                return (
-                  <li>
-                    <a href={href}>{service}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
-      );
-    })
-  }
-</div>
+            {item === "Services" && (
+              <ul class="menu">
+                {servicesItems.map(({ service, href }) => {
+                  return (
+                    <li>
+                      <a href={href}>{service}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+</nav-items>
 
 <script>
-  const dropDownEle = document?.querySelector(".dropdown");
-  // LVP hover to activate dropdown
-  if (window.matchMedia("(min-width: 600px)").matches) {
-    dropDownEle?.addEventListener("mouseenter", () => {
-      if (dropDownEle?.classList.contains("closed")) {
-        dropDownEle?.classList.remove("closed");
-      }
-    });
+  class NavItems extends HTMLElement {
+    constructor() {
+      super();
+      const dropDownEle = this.querySelector(".dropdown");
+      const faqEle = this.querySelector(".faq");
+      const isMvpAndUpMedia = window?.matchMedia("(min-width: 600px)");
 
-    dropDownEle?.addEventListener("mouseleave", () => {
-      if (!dropDownEle?.classList.contains("closed")) {
-        dropDownEle?.classList.add("closed");
+      // ToDo track window resizing and use proper eventListener when resized and not refreshing page
+      if (isMvpAndUpMedia.matches) {
+        // LVP hover dropdown
+        dropDownEle?.addEventListener("mouseenter", () => {
+          if (dropDownEle?.classList.contains("closed")) {
+            dropDownEle?.classList.remove("closed");
+          }
+        });
+
+        dropDownEle?.addEventListener("mouseleave", () => {
+          if (!dropDownEle?.classList.contains("closed")) {
+            dropDownEle?.classList.add("closed");
+          }
+        });
+      } else {
+        // MVP-SVP click to activate dropdown
+        dropDownEle?.addEventListener("click", () => {
+          dropDownEle?.classList.toggle("closed");
+          faqEle?.classList.toggle("move");
+        });
       }
-    });
-  } else {
-    dropDownEle?.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      dropDownEle?.classList.toggle("closed");
-    });
+    }
   }
-  // MVP-SVP click to activate dropdown
+  customElements.define("nav-items", NavItems);
 </script>
 
 <style>
@@ -125,6 +137,13 @@ const servicesItems = [
     cursor: pointer;
   }
 
+  .dropdown {
+    display: flex;
+    flex-flow: column;
+  }
+  .move {
+    top: 170px;
+  }
   .dropdown.closed > .menu {
     transform: scaleY(0);
   }
@@ -134,7 +153,6 @@ const servicesItems = [
     display: grid;
     list-style: none;
     transition: all 0.2s ease-in-out;
-    z-index: 2;
     background: rgb(0, 0, 0);
     transform: scaleY(1);
     transform-origin: top;
