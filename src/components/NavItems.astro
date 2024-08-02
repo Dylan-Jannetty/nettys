@@ -58,7 +58,7 @@ const servicesItems = [
       super();
       const dropDownEle = this.querySelector(".dropdown");
       const faqEle = this.querySelector(".faq");
-      const isMvpAndUpMedia = window?.matchMedia("(min-width: 600px)");
+      const isMvpAndUpMedia = window?.matchMedia("(min-width: 992px)");
 
       // ToDo track window resizing and use proper eventListener when resized and not refreshing page
       if (isMvpAndUpMedia.matches) {
@@ -92,7 +92,7 @@ const servicesItems = [
     position: relative;
     flex-flow: column;
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       flex-flow: row;
     }
   }
@@ -121,14 +121,14 @@ const servicesItems = [
     font-size: 30px;
     text-transform: uppercase;
 
-    @media (min-width: 640px) {
+    @media (min-width: 992px) {
       color: black;
       font-size: 16px;
       text-transform: capitalize;
     }
   }
   .nav-item:hover {
-    @media (min-width: 640px) {
+    @media (min-width: 992px) {
       background: rgba(197, 196, 196, 0.3);
     }
   }
