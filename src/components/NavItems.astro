@@ -58,7 +58,7 @@ const servicesItems = [
       super();
       const dropDownEle = this.querySelector(".dropdown");
       const faqEle = this.querySelector(".faq");
-      const isMvpAndUpMedia = window?.matchMedia("(min-width: 992px)");
+      const isMvpAndUpMedia = window?.matchMedia("(min-width: 1025px)");
 
       // ToDo track window resizing and use proper eventListener when resized and not refreshing page
       if (isMvpAndUpMedia.matches) {
@@ -78,7 +78,9 @@ const servicesItems = [
         // MVP-SVP click to activate dropdown
         dropDownEle?.addEventListener("click", () => {
           dropDownEle?.classList.toggle("closed");
-          faqEle?.classList.toggle("move");
+          if (window.matchMedia("(max-width: 992px)").matches) {
+            faqEle?.classList.toggle("move");
+          }
         });
       }
     }
