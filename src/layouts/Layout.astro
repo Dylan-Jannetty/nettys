@@ -41,10 +41,13 @@ const { title } = Astro.props;
   }
   body {
     margin: 0;
+    @media (min-width: 992px) {
+      max-width: 1440px;
+    }
   }
 
   .hide-on-mobile {
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       display: none !important;
     }
   }

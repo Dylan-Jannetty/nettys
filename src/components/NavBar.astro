@@ -6,30 +6,30 @@ import Hamburger from "./Hamburger.astro";
 ---
 
 <nav class="container">
-  <a class="logo" href="/">
-    <Image alt="nettys-logo" src={logo} loading="eager" />
-  </a>
+  <div class="content-container">
+    <a class="logo" href="/">
+      <Image alt="nettys-logo" src={logo} loading="eager" />
+    </a>
 
-  <!-- LVP - MVP Viewport -->
-  <div class="hide-on-mobile">
-    <NavItems />
+    <!-- LVP - MVP Viewport -->
+    <div class="hide-on-mobile">
+      <NavItems />
+    </div>
+    <!-- ToDo: Figure out why this isnt showing on ipad pro? -->
+    <button class="cta-btn hide-on-mobile">Free Quote</button>
+    <!-- ----- -->
+
+    <!-- SVP Viewport -->
+    <Hamburger />
+    <!-- ---- -->
   </div>
-  <button class="cta-btn hide-on-mobile">Free Quote</button>
-  <!-- ----- -->
-
-  <!-- SVP Viewport -->
-  <Hamburger />
-  <!-- ---- -->
 </nav>
 
 <style>
   .container {
     position: relative;
     z-index: 3;
-    display: flex;
-    justify-content: space-between;
     padding: 0 15px;
-    align-items: center;
     height: 80px;
     max-width: 100vw;
     background: transparent;
@@ -41,6 +41,19 @@ import Hamburger from "./Hamburger.astro";
     @media (min-width: 992px) {
       height: 100px;
       padding: 0;
+    }
+  }
+
+  .content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 992px) {
+      width: 1440px;
     }
   }
   .logo {
