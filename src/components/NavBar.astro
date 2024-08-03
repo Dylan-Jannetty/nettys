@@ -31,7 +31,6 @@ import Hamburger from "./Hamburger.astro";
     z-index: 3;
     padding: 0 15px;
     height: 80px;
-    width: 100vw;
     background: transparent;
     backdrop-filter: blur(8px);
     box-shadow:
@@ -39,6 +38,7 @@ import Hamburger from "./Hamburger.astro";
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
     @media (min-width: 992px) {
+      width: 100vw;
       height: 100px;
       padding: 0;
     }
