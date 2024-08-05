@@ -5,5 +5,5 @@ import betterImageService from "astro-better-image-service";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [compress(), betterImageService()]
+  integrations: [compress({ css: false }), betterImageService()]
 });
