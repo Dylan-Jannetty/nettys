@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../../public/hero-image.jpg";
+---
+
+<div class="hero-container">
+  <div class="copy">
+    <h1>Give your buisness a digital footprint.</h1>
+    <h4>
+      Transform your online identity with our bespoke web design services. At
+      Nettys, we specialize in crafting stunning, <span class="key-word"
+        >custom websites</span
+      > tailored to your unique needs. From seamless design and <span
+        class="key-word">secure hosting</span
+      > to
+      <span class="key-word">meticulous maintenance</span> and <span
+        class="key-word">cutting-edge SEO optimization</span
+      >, we handle every detail to ensure your website stands out and performs
+      at its best. Partner with us to build a digital presence that not only
+      looks great but also drives results.
+    </h4>
+    <button class="cta-btn">Get Started</button>
+  </div>
+
+  <Image class="hero-image" src={heroImage} alt="hero-image" loading="lazy" />
+</div>
+
+<style>
+  .hero-container {
+    margin: 0 auto;
+    @media (min-width: 992px) {
+      max-width: 992px;
+    }
+  }
+  .copy {
+    padding: 15px;
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+    align-items: center;
+
+    button {
+      width: 200px;
+    }
+  }
+  h1,
+  h4 {
+    .key-word {
+      color: var(--green);
+      font-weight: bold;
+    }
+    /* text-align: center; */
+  }
+  h1 {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 500;
+  }
+  h4 {
+    font-weight: 200;
+  }
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    @media (min-width: 992px) {
+      max-width: 992px;
+    }
+  }
+</style>
