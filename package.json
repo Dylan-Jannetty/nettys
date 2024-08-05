@@ -13,7 +13,6 @@
     "@astrojs/check": "^0.8.2",
     "astro": "^4.12.2",
     "astro-better-image-service": "^2.0.13",
-    "astro-compress": "^2.3.0",
     "sharp": "^0.33.4",
     "typescript": "^5.5.4"
   },
