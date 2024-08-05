@@ -1,12 +1,12 @@
 ---
-// import { Image } from "astro:assets";
-// import heroImage from "../../public/hero-image.svg";
+import { Image } from "astro:assets";
+import heroImage from "../../public/hero-image.svg";
 ---
 
 <div class="hero-container">
   <div class="copy">
-    <h1>Give your buisness a digital footprint.</h1>
-    <h4>
+    <h1 class="title">Give your buisness a digital footprint.</h1>
+    <h4 class="description">
       At Netty's, we create bespoke websites that shine. From <span
         class="key-word">custom design</span
       > and <span class="key-word">reliable hosting</span> to <span
@@ -14,12 +14,13 @@
       >
       and <span class="key-word">SEO optimization</span>, we handle it all so
       you can focus on what you do best. Elevate your digital presence with a
-      partner who understands your needs. Let’s build something extraordinary.
+      partner who understands your needs. Let&apos;s build something
+      extraordinary.
     </h4>
     <button class="cta-btn">Get Started</button>
   </div>
 
-  <!-- <Image class="hero-image" src={heroImage} alt="hero-image" loading="lazy" /> -->
+  <Image class="hero-image" src={heroImage} alt="hero-image" loading="lazy" />
 </div>
 
 <style>
@@ -35,10 +36,9 @@
     flex-flow: column;
     margin-bottom: 20px;
     align-items: center;
-
-    button {
-      width: 200px;
-    }
+  }
+  .copy button {
+    width: 200px;
   }
   h1 {
     text-transform: capitalize;
@@ -47,10 +47,10 @@
   }
   h4 {
     font-weight: 200;
-    .key-word {
-      color: var(--green);
-      font-weight: bold;
-    }
+  }
+  h4 > .key-word {
+    color: var(--green);
+    font-weight: bold;
   }
   .hero-image {
     width: 100%;
