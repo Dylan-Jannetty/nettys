@@ -24,26 +24,29 @@ import { Image } from "astro:assets";
   </div>
   <div class="images-container">
     <div class="image-container">
-        <Image src={webDesignImage} alt="web-design-image" />
+      <Image src={webDesignImage} alt="web-design-image" />
     </div>
     <div class="image-container">
-        <Image src={webMaintain} alt="web-maintenance-image" />
+      <Image src={webMaintain} alt="web-maintenance-image" />
     </div>
     <div class="image-container">
-        <Image src={hosting} alt="web-hosting-image" />
+      <Image src={hosting} alt="web-hosting-image" />
     </div>
     <div class="image-container">
-        <Image src={seo} alt="web-seo-image" />
+      <Image src={seo} alt="web-seo-image" />
     </div>
-
   </div>
 </div>
 
 <style>
   .hero-container {
     margin: 0 auto;
-    @media (min-width: 992px) {
-      max-width: 992px;
+    @media (min-width: 768px) {
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5%;
     }
   }
   .copy {
@@ -52,6 +55,10 @@ import { Image } from "astro:assets";
     flex-flow: column;
     margin-bottom: 20px;
     align-items: center;
+    @media (min-width: 768px) {
+      justify-content: center;
+      max-width: 50%;
+    }
   }
   .copy button {
     width: 200px;
@@ -60,36 +67,47 @@ import { Image } from "astro:assets";
     text-transform: capitalize;
     text-align: center;
     font-weight: 500;
+    @media (min-width: 992px) {
+      font-size: 50px;
+    }
   }
   h4 {
     font-weight: 200;
+    margin-bottom: 25px;
+    @media (min-width: 992px) {
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
   }
   h4 > .key-word {
     color: var(--green);
     font-weight: bold;
   }
-  .hero-image {
-    width: 100%;
-    height: 100%;
-    border: none;
-    @media (min-width: 992px) {
-      max-width: 992px;
-    }
-  }
 
   .images-container {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: wrap;
+    @media (min-width: 768px) {
+      gap: 20px;
+    }
   }
 
   .image-container {
     background: rgb(234 233 233);
     border-radius: 20px;
-    width: 47%;
-  img {
-    width: 100%;
-    height: 100%;
+    width: 45%;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.5);
+    @media (min-width: 768px) {
+      width: 35%;
+    }
+    @media (min-width: 992px) {
+      width: 45%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>
