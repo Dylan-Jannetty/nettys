@@ -1,8 +1,8 @@
 ---
-// import { Image } from "astro:assets";
-// import heroImage from "../../public/heroImage.png";
-import responsiveWebVideo from "/responsiveWeb.webm";
+import customWebsite from "/custom-website.webm";
 import webSiteMaintence from "/webSiteMaintence.webm";
+import hosting from "/hosting.webm";
+import seo from "/seo.webm";
 ---
 
 <div class="hero-container">
@@ -21,9 +21,15 @@ import webSiteMaintence from "/webSiteMaintence.webm";
     </h4>
     <button class="cta-btn">Get Started</button>
   </div>
-  <div>
+  <div class="video-container">
     <video autoplay loop muted playsinline>
-      <source src={responsiveWebVideo} type="video/webm" />
+      <source src={customWebsite} type="video/webm" />
+    </video>
+    <video autoplay loop muted playsinline>
+      <source src={hosting} type="video/webm" />
+    </video>
+    <video autoplay loop muted playsinline>
+      <source src={seo} type="video/webm" />
     </video>
     <video autoplay loop muted playsinline>
       <source src={webSiteMaintence} type="video/webm" />
@@ -68,8 +74,17 @@ import webSiteMaintence from "/webSiteMaintence.webm";
       max-width: 992px;
     }
   }
+
+  .video-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
   video {
     border-radius: 20px;
-    width: 100%;
+    width: 47%;
+    background: rgb(215, 215, 215);
+    height: 165px;
   }
 </style>
