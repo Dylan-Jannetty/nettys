@@ -1,8 +1,9 @@
 ---
-import customWebsite from "/custom-website.webm";
-import webSiteMaintence from "/webSiteMaintence.webm";
-import hosting from "/hosting.webm";
-import seo from "/seo.webm";
+import hosting from "../../public/hosting.png";
+import webDesignImage from "../../public/web-design.png";
+import webMaintain from "../../public/web-maintain.png";
+import seo from "../../public/seo.png";
+import { Image } from "astro:assets";
 ---
 
 <div class="hero-container">
@@ -21,19 +22,20 @@ import seo from "/seo.webm";
     </h4>
     <button class="cta-btn">Get Started</button>
   </div>
-  <div class="video-container">
-    <video autoplay loop muted playsinline>
-      <source src={customWebsite} type="video/webm" />
-    </video>
-    <video autoplay loop muted playsinline>
-      <source src={hosting} type="video/webm" />
-    </video>
-    <video autoplay loop muted playsinline>
-      <source src={seo} type="video/webm" />
-    </video>
-    <video autoplay loop muted playsinline>
-      <source src={webSiteMaintence} type="video/webm" />
-    </video>
+  <div class="images-container">
+    <div class="image-container">
+        <Image src={webDesignImage} alt="web-design-image" />
+    </div>
+    <div class="image-container">
+        <Image src={webMaintain} alt="web-maintenance-image" />
+    </div>
+    <div class="image-container">
+        <Image src={hosting} alt="web-hosting-image" />
+    </div>
+    <div class="image-container">
+        <Image src={seo} alt="web-seo-image" />
+    </div>
+
   </div>
 </div>
 
@@ -75,19 +77,19 @@ import seo from "/seo.webm";
     }
   }
 
-  .video-container {
+  .images-container {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 10px;
   }
-  video {
+
+  .image-container {
+    background: rgb(234 233 233);
     border-radius: 20px;
     width: 47%;
-    background: rgb(215, 215, 215);
-    height: 165px;
-    source {
-      background: transparent;
-    }
+  img {
+    width: 100%;
+    height: 100%;
   }
 </style>
