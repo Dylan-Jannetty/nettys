@@ -1,6 +1,8 @@
 ---
 // import { Image } from "astro:assets";
-// import heroImage from "../../public/hero-image.svg";
+// import heroImage from "../../public/heroImage.png";
+import responsiveWebVideo from "/responsiveWeb.webm";
+import webSiteMaintence from "/webSiteMaintence.webm";
 ---
 
 <div class="hero-container">
@@ -19,8 +21,14 @@
     </h4>
     <button class="cta-btn">Get Started</button>
   </div>
-
-  <!-- <Image class="hero-image" src={heroImage} alt="hero-image" loading="lazy" /> -->
+  <div>
+    <video autoplay loop muted playsinline>
+      <source src={responsiveWebVideo} type="video/webm" />
+    </video>
+    <video autoplay loop muted playsinline>
+      <source src={webSiteMaintence} type="video/webm" />
+    </video>
+  </div>
 </div>
 
 <style>
@@ -55,8 +63,13 @@
   .hero-image {
     width: 100%;
     height: 100%;
+    border: none;
     @media (min-width: 992px) {
       max-width: 992px;
     }
+  }
+  video {
+    border-radius: 20px;
+    width: 100%;
   }
 </style>
