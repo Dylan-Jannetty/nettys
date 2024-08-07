@@ -1,25 +1,27 @@
 ---
+import Hero from "../components/Hero.astro";
+import WhatWeDo from "../components/WhatWeDo.astro";
+import InnerLayout from "../layouts/InnerLayout.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Nettys" />
+<Layout title="Nettys">
+  <div class="home-bg">
+    <InnerLayout>
+      <Hero />
+      <img
+        src="/lvpDivider.png"
+        class="swoosh-img"
+        aria-label="swoosh-img"
+      /></InnerLayout
+    >
+    <WhatWeDo />
+  </div>
+</Layout>
+
 <style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
+  .swoosh-img {
+    width: 100%;
+    height: 150px;
   }
 </style>

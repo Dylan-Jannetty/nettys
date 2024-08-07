@@ -1,0 +1,128 @@
+---
+import hosting from "../../public/hosting.png";
+import webDesignImage from "../../public/web-design.png";
+import webMaintain from "../../public/web-maintain.png";
+import seo from "../../public/seo.png";
+import { Image } from "astro:assets";
+---
+
+<div class="hero-container">
+  <div class="copy">
+    <h1 class="title">Give your buisness a digital footprint.</h1>
+    <h4 class="description">
+      At Netty's, we create bespoke websites that shine. From <span
+        class="key-word">custom design</span
+      > and <span class="key-word">reliable hosting</span> to <span
+        class="key-word">expert maintenance</span
+      >
+      and <span class="key-word">SEO optimization</span>, we handle it all so
+      you can focus on what you do best. Elevate your digital presence with a
+      partner who understands your needs. Let&apos;s build something
+      extraordinary.
+    </h4>
+    <button class="cta-btn">Get Started</button>
+  </div>
+  <div class="images-container">
+    <div class="image-container">
+      <Image src={webDesignImage} alt="web-design-image" />
+    </div>
+    <div class="image-container">
+      <Image src={webMaintain} alt="web-maintenance-image" />
+    </div>
+    <div class="image-container">
+      <Image src={hosting} alt="web-hosting-image" />
+    </div>
+    <div class="image-container">
+      <Image src={seo} alt="web-seo-image" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-container {
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5%;
+    }
+  }
+  .copy {
+    padding: 15px;
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      justify-content: center;
+      max-width: 50%;
+      margin-bottom: 0;
+    }
+  }
+  .copy button {
+    width: 200px;
+  }
+  h1 {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 900;
+    @media (min-width: 992px) {
+      font-size: 50px;
+    }
+  }
+  h4 {
+    font-weight: 100;
+    margin-bottom: 25px;
+    @media (min-width: 992px) {
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+  }
+  h4 > .key-word {
+    color: var(--blue);
+    font-weight: bold;
+  }
+
+  .images-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+    @media (min-width: 768px) {
+      gap: 20px;
+    }
+  }
+
+  .image-container {
+    border-radius: 20px;
+    width: 45%;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.8);
+    &:nth-child(1) {
+      background: #3f039f;
+    }
+    &:nth-child(2) {
+      background: #f39f5a;
+    }
+    &:nth-child(3) {
+      background: #ce165d;
+    }
+    &:nth-child(4) {
+      background: #ccffbd;
+    }
+    @media (min-width: 768px) {
+      width: 35%;
+    }
+    @media (min-width: 992px) {
+      width: 45%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+</style>

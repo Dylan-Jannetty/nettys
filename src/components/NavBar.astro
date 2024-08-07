@@ -31,14 +31,15 @@ import Hamburger from "./Hamburger.astro";
     z-index: 3;
     padding: 0 15px;
     height: 80px;
-    max-width: 100vw;
     background: transparent;
     backdrop-filter: blur(8px);
-    box-shadow:
+    /* Add when scrolling */
+    /* box-shadow:
       rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
 
     @media (min-width: 992px) {
+      width: 100vw;
       height: 100px;
       padding: 0;
     }
@@ -52,7 +53,7 @@ import Hamburger from "./Hamburger.astro";
     height: 100%;
     margin: 0 auto;
 
-    @media (min-width: 992px) {
+    @media (min-width: 1440px) {
       width: 1440px;
     }
   }
