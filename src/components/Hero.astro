@@ -41,12 +41,14 @@ import { Image } from "astro:assets";
 <style>
   .hero-container {
     margin: 0 auto;
+    margin-bottom: 20px;
+
     @media (min-width: 768px) {
       max-width: 1200px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 5%;
+      padding-top: 5%;
     }
   }
   .copy {
@@ -55,9 +57,11 @@ import { Image } from "astro:assets";
     flex-flow: column;
     margin-bottom: 20px;
     align-items: center;
+
     @media (min-width: 768px) {
       justify-content: center;
       max-width: 50%;
+      margin-bottom: 0;
     }
   }
   .copy button {
@@ -66,13 +70,13 @@ import { Image } from "astro:assets";
   h1 {
     text-transform: capitalize;
     text-align: center;
-    font-weight: 500;
+    font-weight: 900;
     @media (min-width: 992px) {
       font-size: 50px;
     }
   }
   h4 {
-    font-weight: 200;
+    font-weight: 100;
     margin-bottom: 25px;
     @media (min-width: 992px) {
       font-size: 20px;
@@ -80,7 +84,7 @@ import { Image } from "astro:assets";
     }
   }
   h4 > .key-word {
-    color: var(--green);
+    color: var(--blue);
     font-weight: bold;
   }
 
@@ -95,10 +99,21 @@ import { Image } from "astro:assets";
   }
 
   .image-container {
-    background: rgb(234 233 233);
     border-radius: 20px;
     width: 45%;
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.8);
+    &:nth-child(1) {
+      background: #3f039f;
+    }
+    &:nth-child(2) {
+      background: #f39f5a;
+    }
+    &:nth-child(3) {
+      background: #ce165d;
+    }
+    &:nth-child(4) {
+      background: #ccffbd;
+    }
     @media (min-width: 768px) {
       width: 35%;
     }
